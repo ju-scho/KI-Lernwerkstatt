@@ -69,6 +69,15 @@ HTML muss die A4-Druck-Regeln enthalten (`@page A4` + `break-inside:avoid` auf j
 damit kein Block mitten umgebrochen wird. Details + Vorlagen: `tools/README.md`. Beispiel:
 `material/beispiele/`.
 
+## Updates aus dem Template holen
+
+Wenn der Elternteil nach „Updates", „neueste Version" oder „Verbesserungen aus dem Template"
+fragt: führe `tools/update.sh` aus. Das Skript holt die generischen Dateien (`prinzipien/`,
+`tools/`, `vorlagen/`, `CLAUDE.md`, `README.md`, `LICENSE`) aus dem öffentlichen Template und
+lässt die persönlichen Daten (`PROFIL.md`, `STAND.md`, `protokolle/`, `material/`, `inputs/`)
+unangetastet. Danach `git diff` anschauen, dem Elternteil **kurz zusammenfassen, was sich
+geändert hat**, und erst nach seinem OK committen. Persönliche Daten niemals überschreiben.
+
 ## Externe Inputs
 
 `inputs/` — z. B. Recherche-Berichte zu verfügbaren Lerntools oder Hinweise, was gerade in der

@@ -60,15 +60,101 @@ Computer und chattet mit der KI.
 | `protokolle/` | Verlauf der Sessions |
 | `vorlagen/` | Leere Vorlagen (Profil, Stand, Protokoll, Interview) |
 
-## Schnellstart
+## 🚀 Loslegen — Schritt für Schritt
 
-1. **Installieren & öffnen** — siehe [`INSTALLATION.md`](INSTALLATION.md) (CLI, Claude Code
-   oder Cloud).
-2. **Onboarding** — Beim ersten Start führt dich der Coach durch ein kurzes Interview über dein
-   Kind (Skript: `START-HIER.md`) und legt `PROFIL.md` + `STAND.md` an. Die Datei `START-HIER.md`
-   löscht sich danach selbst — die Werkstatt ist sofort einsatzbereit.
-3. **Loslegen** — Sag dem Coach z. B.: *„Ich sitze gerade mit meinem Kind da, wir wollen das
-   Einmaleins üben — was schlägst du vor?"*
+> Keine Sorge, du musst kein Technik-Profi sein. Arbeite die Schritte einfach der Reihe nach
+> ab. Wenn ein Befehl kompliziert wirkt: kopieren, einfügen, Enter. Hängst du fest, frag später
+> den Coach selbst — er hilft dir weiter.
+
+### Was du brauchst
+- Einen **Computer** (Windows, Mac oder Linux) mit Internet.
+- **Claude Code** — das KI-Werkzeug, mit dem du arbeitest. Kostenlos installieren und einrichten
+  nach Anleitung hier: <https://claude.com/claude-code> (du brauchst dafür ein Anthropic-Konto).
+- Optional, aber empfohlen: ein kostenloses **GitHub-Konto** (<https://github.com>) — damit dein
+  Stand gesichert ist und auf mehreren Geräten funktioniert.
+
+### Schritt 1 — Die Werkstatt auf deinen Computer holen
+
+Du hast zwei Möglichkeiten. **Weg B ist empfohlen**, wenn du ein GitHub-Konto hast.
+
+**Weg A — einfach ausprobieren (lokal, ohne GitHub-Konto):**
+Öffne ein Terminal (bei Windows: „Eingabeaufforderung" bzw. „PowerShell") und gib ein:
+```bash
+git clone https://github.com/ju-scho/KI-Lernwerkstatt.git meine-lernwerkstatt
+cd meine-lernwerkstatt
+```
+Das lädt die Werkstatt in einen Ordner namens `meine-lernwerkstatt` herunter und wechselt hinein.
+
+**Weg B — eigene private Kopie mit Sicherung (empfohlen):**
+1. Klick auf dieser GitHub-Seite oben auf den grünen Button **„Use this template"** →
+   **„Create a new repository"**.
+2. Gib einen Namen ein (z. B. `meine-lernwerkstatt`), wähle **Private** und klick **„Create
+   repository"**.
+3. Hol deine private Kopie auf den Computer (ersetze `DEIN-GITHUB-NAME`):
+   ```bash
+   git clone https://github.com/DEIN-GITHUB-NAME/meine-lernwerkstatt.git
+   cd meine-lernwerkstatt
+   ```
+So hast du eine **eigene, private** Kopie — komplett getrennt vom öffentlichen Original. (Das ist
+kein „Fork": es gibt keine Verbindung zurück, dein Privates bleibt privat.)
+
+### Schritt 2 — Den KI-Coach starten
+Im selben Ordner eingeben:
+```bash
+claude
+```
+Claude Code öffnet sich und liest automatisch die Anleitung (`CLAUDE.md`).
+
+### Schritt 3 — Einmaliges Onboarding (~10 Minuten)
+Weil es noch kein Profil deines Kindes gibt, führt dich der Coach automatisch durch:
+1. einen **Datenschutz-Hinweis** (du bestätigst),
+2. ein **kurzes Interview** über dein Kind,
+3. das Anlegen von `PROFIL.md` und `STAND.md`,
+4. danach **löscht sich die Onboarding-Datei selbst** — fertig eingerichtet.
+
+Sag dem Coach danach z. B.: *„Ich sitze gerade mit meinem Kind da, wir wollen das Einmaleins
+üben — was schlägst du vor?"*
+
+### Schritt 4 — (Optional) Stand sichern & synchronisieren
+Hast du Weg A genommen und willst später doch sichern? Lege ein **privates** GitHub-Repo an und
+verbinde es (dafür brauchst du die GitHub CLI `gh` und ein GitHub-Konto):
+```bash
+gh repo create meine-lernwerkstatt --private --source=. --push
+```
+Danach sichert der Coach den Stand am Ende jeder Session automatisch. **Wichtig:** Wegen der
+persönlichen Daten in `PROFIL.md` immer ein **privates** Repository.
+
+### Werkzeuge für Arbeitsblätter (optional)
+Das Coaching läuft ohne Zusatzsoftware. Nur damit der Coach **druckbare Arbeitsblätter/Karten**
+erzeugen kann, brauchst du zusätzlich Google Chrome (oder Chromium), ImageMagick, Poppler und
+eine Emoji-Schrift.
+- **Ubuntu/Debian:** `sudo apt install chromium-browser imagemagick poppler-utils fonts-noto-color-emoji`
+- **macOS:** `brew install --cask google-chrome` und `brew install imagemagick poppler`
+
+Fehlt davon etwas, funktioniert das Coaching trotzdem — nur die Bild-/PDF-Erstellung nicht.
+
+## 🔄 Updates bekommen (wenn das Template verbessert wird)
+
+Deine private Kopie ist **eigenständig** — sie aktualisiert sich nicht von selbst (und das ist
+gut so: so wandert nie versehentlich etwas Privates ins öffentliche Repo). Wenn es Verbesserungen
+am Template gibt, holst du sie bewusst, wann du willst.
+
+**Der einfache Weg:** Sag es im Projekt einfach dem Coach:
+> „Hol bitte die neuesten Verbesserungen aus dem Template."
+
+Er führt dann das mitgelieferte Skript aus und fasst zusammen, was sich geändert hat.
+
+**Oder selbst per Befehl:**
+```bash
+tools/update.sh
+git diff          # ansehen, was sich geändert hat
+git add -A && git commit -m "Template-Updates übernommen"
+```
+
+**Was passiert mit deinen Daten?** Nichts — sie bleiben unangetastet. Das Update überschreibt
+**nur die generischen Dateien** (`prinzipien/`, `tools/`, `vorlagen/`, `CLAUDE.md`, `README.md`,
+`LICENSE`). Deine persönlichen Inhalte — **`PROFIL.md`, `STAND.md`, `protokolle/`, `material/`,
+`inputs/`** — werden nie angefasst. Vor dem Committen kannst du mit `git diff` alles in Ruhe prüfen.
 
 ## 🔒 Datenschutz (bitte lesen)
 
@@ -84,9 +170,9 @@ Deshalb:
 
 ## Mitmachen
 
-Dies ist ein Template zum Forken und Verbessern. Verbesserungen an den generischen Teilen
-(Prinzipien, Werkzeuge, Vorlagen) sind willkommen — persönliche Profile gehören **nicht** ins
-öffentliche Repo.
+Dies ist ein Template zum Kopieren („Use this template") und Verbessern. Verbesserungen an den
+generischen Teilen (Prinzipien, Werkzeuge, Vorlagen) sind willkommen — persönliche Profile
+gehören **nicht** ins öffentliche Repo.
 
 ## Hinweis zu den Quellen
 

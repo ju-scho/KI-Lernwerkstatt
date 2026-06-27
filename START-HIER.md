@@ -67,9 +67,9 @@ Aus den Antworten:
 
 ## Schritt 4 — (Optional) Sicherung per Git einrichten
 
-Frage, ob der Elternteil den Stand geräteübergreifend sichern möchte. Falls ja, weise auf
-`INSTALLATION.md` hin (privates Repo anlegen). **Wichtig:** Wegen der persönlichen Daten in
-`PROFIL.md` immer ein **privates** Repository verwenden.
+Frage, ob der Elternteil den Stand geräteübergreifend sichern möchte. Falls ja, weise auf den
+Abschnitt „Loslegen → Schritt 4" in der `README.md` hin (privates Repo anlegen). **Wichtig:**
+Wegen der persönlichen Daten in `PROFIL.md` immer ein **privates** Repository verwenden.
 
 ## Schritt 5 — Diese Datei löschen & loslegen
 
