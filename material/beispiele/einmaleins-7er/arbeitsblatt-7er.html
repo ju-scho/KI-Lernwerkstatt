@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<!-- v2: gebaut nach prinzipien/LERN-CHECK.md
+     Gate 4 müheloser Einstieg + Gate 7 konkret = Anker mit Pferden gezeigt
+     Gate 3 Generation = vom Anker selbst ableiten
+     Gate 1 Abruf "ohne Finger" + Gate 8 Interleaving (2er/5er gemischt)
+     Gate 9 Wachstum = Pferde-Lauf + "noch nicht", Metakognition = "dein Trick"
+     Gate 10 positiver, wachstumsorientierter Abschluss -->
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:780px;font-family:"Comic Sans MS","Segoe UI",sans-serif;background:#fff;
+       color:#333;padding:26px 30px}
+  h1{text-align:center;color:#4a6fa5;font-size:32px}
+  .name{text-align:center;color:#999;font-size:17px;margin:4px 0 14px}
+  .motto{text-align:center;background:#fff3c4;border:3px solid #f2c14e;border-radius:14px;
+         padding:10px;font-size:19px;color:#b8860b;margin-bottom:16px}
+  .lauf{font-size:26px;letter-spacing:4px;margin-top:6px}
+  .lauf .ziel{filter:grayscale(1);opacity:.45}
+  .block{border:3px solid #cfe0c3;border-radius:18px;padding:14px 18px;margin-bottom:14px}
+  .block h2{font-size:21px;color:#88b04b;margin-bottom:8px}
+  .block h2 small{color:#aaa;font-size:15px;font-weight:normal}
+  .anker{text-align:center}
+  .anker .tiere{font-size:30px;line-height:1.3}
+  .anker .merk{display:inline-block;background:#fff3c4;border:3px solid #f2c14e;border-radius:12px;
+       padding:6px 16px;font-size:26px;color:#b8860b;font-weight:bold;margin-top:8px}
+  .ableiten{font-size:23px;line-height:2;color:#333}
+  .minibox{display:inline-block;min-width:56px;height:40px;border:3px solid #88b04b;
+           border-radius:10px;vertical-align:middle;background:#f6fbf1}
+  .treppe{display:flex;flex-wrap:wrap;align-items:center;gap:7px;font-size:24px;
+          color:#4a6fa5;font-weight:bold}
+  .pfeil{color:#e07a5f;font-size:18px}
+  .luecke{display:inline-block;min-width:56px;height:40px;border:3px dashed #e07a5f;
+          border-radius:10px;vertical-align:middle;background:#fff7f4}
+  .kopf{font-size:18px;color:#e07a5f;margin-bottom:8px}
+  .aufgaben{display:flex;flex-wrap:wrap;gap:12px 26px;font-size:24px;color:#333}
+  .aufg{display:flex;align-items:center;gap:8px}
+  .box{display:inline-block;min-width:62px;height:44px;border:3px solid #4a6fa5;
+       border-radius:11px;background:#f7faff}
+  .trick{border:3px solid #c9b3e0;border-radius:14px;padding:12px 16px;background:#faf6ff;
+         font-size:19px;color:#6b4c8a;margin-bottom:14px}
+  .linie{display:inline-block;border-bottom:3px dotted #c9b3e0;min-width:380px;height:24px}
+  .ende{text-align:center;border:3px dashed #f2c14e;border-radius:18px;padding:14px;background:#fffdf2}
+  .ende .gross{font-size:20px;color:#b8860b}
+  .malfeld{height:140px;border:3px solid #ddd;border-radius:14px;margin-top:8px;background:#fff}
+  /* --- A4-Druck (tools/druck.sh): kein Block wird mitten umgebrochen --- */
+  @media print{
+    @page{size:A4;margin:12mm}
+    body{width:auto;padding:0}
+  }
+  .motto,.block,.trick,.ende{break-inside:avoid;page-break-inside:avoid}
+</style>
+</head>
+<body>
+  <h1>🐴 Max' Pferde-Mathe: die 7er-Reihe 🐴</h1>
+  <div class="name">Name: ________________     Datum: __________</div>
+
+  <div class="motto">
+    Jedes Mal, wenn du übst, läuft dein Pferd ein Stück weiter! 🏇
+    <div class="lauf">🏁 🐴 ➡️ ⭐ ⭐ ⭐ <span class="ziel">🏆</span></div>
+  </div>
+
+  <div class="block">
+    <h2>1. Dein Anker <small>— eine Zahl, die alles leichter macht</small></h2>
+    <div class="anker">
+      <div class="tiere">🐴🐴🐴🐴🐴🐴🐴 🐴🐴🐴🐴🐴🐴🐴 🐴🐴🐴🐴🐴🐴🐴 🐴🐴🐴🐴🐴🐴🐴 🐴🐴🐴🐴🐴🐴🐴</div>
+      <div>5 Koppeln mit je 7 Pferden</div>
+      <div class="merk">5 × 7 = 35 ⭐ &nbsp;(merk dir das!)</div>
+    </div>
+  </div>
+
+  <div class="block">
+    <h2>2. Vom Anker aus <small>— ein Sprung rauf, ein Sprung runter</small></h2>
+    <div class="ableiten">
+      Eine Koppel mehr: &nbsp;<b>6 × 7</b> = 35 + 7 = <span class="minibox"></span><br>
+      Eine Koppel weniger: &nbsp;<b>4 × 7</b> = 35 − 7 = <span class="minibox"></span>
+    </div>
+  </div>
+
+  <div class="block">
+    <h2>3. Das Muster <small>— immer +7</small></h2>
+    <div class="treppe">
+      7 <span class="pfeil">+7▶</span> 14 <span class="pfeil">+7▶</span>
+      <span class="luecke"></span> <span class="pfeil">+7▶</span> 28 <span class="pfeil">+7▶</span>
+      <span class="luecke"></span> <span class="pfeil">+7▶</span> 42 <span class="pfeil">+7▶</span>
+      <span class="luecke"></span>
+    </div>
+  </div>
+
+  <div class="block">
+    <h2>4. Aus dem Kopf <small>— ohne Finger, einfach raten ist erlaubt!</small></h2>
+    <div class="kopf">Erst denken, dann schreiben. Bei einer hilft dir dein Anker. 😉</div>
+    <div class="aufgaben">
+      <span class="aufg">2 × 7 =<span class="box"></span></span>
+      <span class="aufg">7 × 7 =<span class="box"></span></span>
+      <span class="aufg">5 × 7 =<span class="box"></span></span>
+      <span class="aufg">3 × 7 =<span class="box"></span></span>
+    </div>
+  </div>
+
+  <div class="trick">
+    🔎 Mein bester Trick heute war: <span class="linie"></span>
+  </div>
+
+  <div class="ende">
+    <div class="gross">Was heute <b>noch nicht</b> saß, sitzt schon bald! ⭐<br>Male dein Lieblingspferd:</div>
+    <div class="malfeld"></div>
+  </div>
+</body>
+</html>

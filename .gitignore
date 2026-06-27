@@ -1,0 +1,10 @@
+# Persönliche Instanzdaten gehören NICHT ins öffentliche Template-Repo.
+# (Beim Forken für die eigene Familie diese Zeilen ggf. anpassen.)
+# PROFIL.md und protokolle/ entstehen erst beim Gebrauch — hier bewusst nicht getrackt:
+# (Wer eine eigene PRIVATE Lernwerkstatt führt, sollte sie sehr wohl committen!)
+
+# OS / Editor
+.DS_Store
+*~
+.vscode/
+.idea/
